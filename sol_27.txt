@@ -1,0 +1,13 @@
+SELECT AVG(s.price) AS AVG_price
+FROM (SELECT price
+FROM Product JOIN PC
+ON Product.model = PC.model
+WHERE maker = 'A'
+
+UNION ALL
+
+SELECT price
+FROM Product JOIN Laptop
+ON Product.model = Laptop.model
+WHERE maker = 'A') AS s;
+
